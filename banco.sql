@@ -52,34 +52,85 @@ create table clientStock (
 );
 
 create table reitAcquisition (
+    idReitAcquisition number primary key,
     FK_idReit number,
     FK_idClient number,
     date date,
     quantity number,
     price number,
     foreign key (FK_idReit) references reit(idReit),
-    foreign key (FK_idClient) references client(idClient),
-    primary key (FK_idReit, FK_idClient, date)
+    foreign key (FK_idClient) references client(idClient)
 );
 
 create table stockAcquisition (
+    idStockAcquisition number primary key,
     FK_idStock number,
     FK_idClient number,
     date date,
     quantity number,
     price number,
     foreign key (FK_idStock) references stock(idStock),
-    foreign key (FK_idClient) references client(idClient),
-    primary key (FK_idStock, FK_idClient, date)
+    foreign key (FK_idClient) references client(idClient)
 );
 
 create table keepAnEyeOnReit (
     FK_idClient number,
     FK_idReit number,
+    lastDaySeen date,
     price number,
     fairPrice number,
     reason varchar(100),
     foreign key (FK_idClient) references client(idClient),
     foreign key (FK_idReit) references reit(idReit),
     primary key (FK_idClient, FK_idReit)
+);
+
+create table toRentStock (
+    idToRentStock number primary key,
+    FK_idStock number,
+    FK_idClient number,
+    date date,
+    quantity number,
+    fee number,
+    isActive boolean,
+    foreign key (FK_idStock) references stock(idStock),
+    foreign key (FK_idClient) references client(idClient)
+);
+
+create table rentedStock (
+    idRentedStock number primary key,
+    FK_idStock number,
+    FK_idClient number,
+    dateStart date,
+    dateEnd date,
+    quantity number,
+    fee number,
+    isActive boolean,
+    foreign key (FK_idStock) references stock(idStock),
+    foreign key (FK_idClient) references client(idClient)
+);
+
+create table toRentReit (
+    idToRentReit number primary key,
+    FK_idReit number,
+    FK_idClient number,
+    date date,
+    quantity number,
+    fee number,
+    isActive boolean,
+    foreign key (FK_idReit) references reit(idReit),
+    foreign key (FK_idClient) references client(idClient)
+);
+
+create table rentedReit (
+    idRentedReit number primary key,
+    FK_idReit number,
+    FK_idClient number,
+    dateStart date,
+    dateEnd date,
+    quantity number,
+    fee number,
+    isActive boolean,
+    foreign key (FK_idReit) references reit(idReit),
+    foreign key (FK_idClient) references client(idClient)
 );

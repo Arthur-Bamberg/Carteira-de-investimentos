@@ -85,6 +85,18 @@ create table keepAnEyeOnReit (
     primary key (FK_idClient, FK_idReit)
 );
 
+create table keepAnEyeOnStock (
+    FK_idClient number,
+    FK_idStock number,
+    lastDaySeen date,
+    price number,
+    fairPrice number,
+    reason varchar2(100),
+    foreign key (FK_idClient) references client(idClient),
+    foreign key (FK_idStock) references stock(idStock),
+    primary key (FK_idClient, FK_idStock)
+);
+
 create table toRentStock (
     idToRentStock number primary key,
     FK_idStock number,

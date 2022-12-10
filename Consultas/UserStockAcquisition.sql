@@ -9,4 +9,4 @@ select
 from stockAcquisition
 inner join stock on stockAcquisition.FK_idStock = stock.idStock
 inner join client on stockAcquisition.FK_idClient = client.idClient
-where clientStock.FK_idClient = 1--ID do cliente
+where client.idClient = 1--ID do cliente

@@ -2,7 +2,9 @@ select
     client.idClient,
     client.name,
     client.email,
-    sum(clientReit.quantity) as numberOfReits
+    (select 
+        nvl(sum(clientReit.quantity), 0)
+        from clientReit
+        where clientReit.FK_idClient = client.idClient 
+    ) as numberOfReits
 from client
-inner join clientReit on clientReit.FK_idClient = client.idClient
-group by client.idClient

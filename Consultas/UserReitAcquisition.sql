@@ -9,4 +9,4 @@ select
 from reitAcquisition
 inner join reit on reitAcquisition.FK_idReit = reit.idReit
 inner join client on reitAcquisition.FK_idClient = client.idClient
-where clientStock.FK_idClient = 1--ID do cliente
+where reitAcquisition.FK_idClient = 1--ID do cliente

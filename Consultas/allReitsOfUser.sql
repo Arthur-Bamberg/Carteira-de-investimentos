@@ -13,4 +13,4 @@ select
     clientReit.quantity
 from reit
 inner join clientReit on reit.idReit = clientReit.FK_idReit
-where clientStock.FK_idClient = 1;--ID do cliente
+where clientReit.FK_idClient = 1;--ID do cliente

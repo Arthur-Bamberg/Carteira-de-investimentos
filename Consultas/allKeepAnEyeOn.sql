@@ -11,17 +11,7 @@ select
     nvl(reit.subsection, stock.subsection) as subsection,
     nvl(reit.mainIndex, stock.mainIndex) as mainIndex
 from 
-    clientselect
-    stockAcquisition.idStockAcquisition,
-    stock.name as stockName,
-    stock.code,
-    client.name as clientName,
-    stockAcquisition.aDate,
-    stockAcquisition.quantity,
-    stockAcquisition.price
-from stockAcquisition
-inner join stock on stockAcquisition.FK_idStock = stock.idStock
-inner join client on stockAcquisition.FK_idClient = client.idClient
+    client
     left join keepAnEyeOnReit on keepAnEyeOnReit.FK_idClient = client.idClient 
     left join reit on reit.idReit = keepAnEyeOnReit.FK_idReit
     left join keepAnEyeOnStock on keepAnEyeOnStock.FK_idClient = client.idClient

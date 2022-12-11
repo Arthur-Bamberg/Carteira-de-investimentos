@@ -1,3 +1,4 @@
+create view allUsers as
 select
     client.idClient,
     client.name,

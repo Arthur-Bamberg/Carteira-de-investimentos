@@ -19,4 +19,3 @@ UserKeepAnEyeOnStock.sql ✅
 'allUserAcquisition.sql' ✅
 NumberOfUserReits.sql ✅
 UserReitAcquisition.sql ✅
-

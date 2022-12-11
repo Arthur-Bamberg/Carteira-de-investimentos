@@ -1,3 +1,4 @@
+create view numberOfAllUsersStocks as
 select
     client.idClient,
     client.name,

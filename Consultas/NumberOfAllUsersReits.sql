@@ -1,3 +1,4 @@
+create view numberOfAllUsersReits as
 select
     client.idClient,
     client.name,
